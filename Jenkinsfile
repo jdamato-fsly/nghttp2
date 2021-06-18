@@ -52,7 +52,7 @@ if (ref in releaseBranches) {
 fastlyPipeline(script: this, buildTimeout: BUILD_TIMEOUT, ignoreTags: true, slackChannel: slackChannel) {
   getNode(label: NODELABEL) {
     checkoutWithSubmodules scm
-    def v = readFile file: './VERSION'
+    def v = readFile file: './fastly-build/VERSION'
     def package_version = "${v.trim()}.${env.BUILD_NUMBER}"
     if (namedBuild) {
       package_version = "0.${package_version}-${namedBuild}"

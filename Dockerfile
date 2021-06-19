@@ -16,4 +16,4 @@ RUN mkdir output/
 RUN ls -alhrt
 RUN autoreconf -i && automake && autoconf
 RUN ./configure --prefix=/opt/fst-nghttp2 --disable-python-bindings && make && make install DESTDIR=/build/output
-RUN /opt/fst-ffpm/bin/ffpm -s dir -t deb -n fst-nghttp2 -v ${PKG_VERSION} -C /build --prefix /opt/fst-nghttp2 -p ${DESTDIR}/fst-nghttp2-VERSION_ARCH.deb /build/output/opt/
+RUN /opt/fst-ffpm/bin/ffpm -s dir -t deb -n fst-nghttp2 -v ${PKG_VERSION} -C /build -p ${DESTDIR}/fst-nghttp2-VERSION_ARCH.deb /build/output/opt
